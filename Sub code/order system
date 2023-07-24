@@ -1,0 +1,1797 @@
+#include<stdio.h>
+void welcome();
+void south_indian();
+void sandwich();
+void otherdishes();
+void bevrages();
+void coldrinks();
+void icecreams();
+void final_order_printer();
+int totaldosa[20];
+int totalidli[20];
+int totalsandwich[20];
+int totalother[20];
+int totaltea[20];
+int totalcoffe[20];
+int totalsoda[20];
+int totallassi[20];
+int totaljuice[20];
+int totalicecream[20];
+int totalwafflecone[20];
+int main(){
+
+printf("--------WELCOME TO HOTEL--------\n");
+    FILE *ptr;
+    ptr=fopen("order.txt","w");
+    
+welcome();
+
+int d;
+
+while (1)
+{
+    printf("1 TO ORDER MORE\n2 TO EXIT OR FINAL ORDER\n");
+    scanf("%d",&d);
+    if (d==1)
+{
+    welcome();
+}
+
+ else if (d==2)
+{
+    
+    int totalv=0;
+    for (int i = 0; i < 20; i++)
+    {
+       totalv=totalv+totaldosa[i]+totalidli[i]+totalsandwich[i]+totalother[i]+totaltea[i]+totalcoffe[i]
+       +totalsoda[i]+totallassi[i]+totaljuice[i]+totalicecream[i]+totalwafflecone[i];
+    }
+    printf("-------------------ORDERED FOOD ITEM--------------------\n");
+    final_order_printer();
+    printf("TOTAL\t\t\t\t            =");
+    printf("%d",totalv);
+    printf("\n\nYOUR ORDER WILL ARRIVE SOON \n\n\n\n\n");
+    printf("-------------------THANKYOU FOR VISITING-------------------\n");
+   break;
+}
+else {
+    printf("error\n");
+}
+    
+}
+return 0;
+}
+void welcome(){
+    int ui;
+    printf("WHAT WOULD LIKE TO HAVE TODAY\n");
+    printf("1 FOR SOUTH INDIAN\n");
+    printf("2 FOR SANDWICHES\n");
+    printf("3 FOR OTHERDISHES\n");
+    printf("4 FOR BEVRAGES\n");
+    printf("5 FOR COLDRINKS\n");
+    printf("6 FOR ICECREAMS\n");
+    scanf("%d",&ui);
+    if (ui==1)
+    {
+        south_indian();
+    }
+    else if (ui==2)
+    {
+        sandwich();
+    }
+    else if (ui==3)
+    {
+        otherdishes();
+    }
+    else if (ui==4)
+    {
+        bevrages();
+    }
+    else if (ui==5)
+    {
+        coldrinks();
+    }
+    else if (ui==6)
+    {
+       icecreams();
+    }
+    else{
+        printf("wrong data entered \n");
+        return;
+    }
+    return;
+    
+}
+void south_indian(){
+    int ui;
+    int qty;
+     FILE *ptr;
+     ptr=fopen("order.txt","a+");
+     int ui2;
+    printf("FOOD TYPE:SOUTH INDIAN\n");
+    printf("what do you want in south indian\n");
+    printf("1 for DOSA\n2 for IDLI\n");
+    scanf("%d",&ui);
+    if (ui==1)//dosa
+    {
+        
+        printf("1 for ONION UTTAPPA               45 \n");
+        printf("2 for TOMATO UTTAPPA              45 \n");
+        printf("3 for CHEESE UTTAPA               75\n");
+        printf("4 for MAYSOOR DOSA                45\n");
+        printf("5 for SPRING DOSA                 55\n");
+        printf("6 for CHEESE SPRING DOSA          85\n");
+        printf("7 for PAPER DOSA                  45\n");
+        printf("8 for SET DOSA                    65\n");
+        printf("9 for BUTTER DOSA                 55\n");
+        printf("10 for JAWAR DOSA                 70\n");
+        printf("11 for DIET DOSA                  70\n");
+        printf("12 for PLAIN DOSA                 40\n");
+        printf("13 for PIZZA DOSA                 105\n");
+        printf("14 for PANNER DOSA                110\n");
+        printf("ENTER FOOD ITEM NUMBER:");
+        scanf("%d",&ui2);
+        switch (ui2)
+        {
+        case 1: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d ONION UTTAPA            \t\t%dx45=%d\n",qty,qty,qty*45);
+            totaldosa[0]=45*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+         case 2: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d TOMATO UTTAPPA          \t\t%dx45=%d\n",qty,qty,qty*45);
+            totaldosa[1]=45*qty;
+            fclose(ptr);
+
+            return;
+
+        }
+        break;
+        case 3: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d CHEESE UTTAPPA          \t\t%dx75=%d\n",qty,qty,qty*75);
+            totaldosa[2]=75*qty;
+            fclose(ptr);
+            return;
+
+        }
+        break;
+        case 4: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d MAYSOOR DOSA            \t\t%dx45=%d\n",qty,qty,qty*45);
+            totaldosa[3]=45*qty;
+            fclose(ptr);
+            return;
+
+        }
+        break;
+        case 5: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d SPRING DOSA             \t\t%dx55=%d\n",qty,qty,qty*55);
+            totaldosa[4]=55*qty;
+            fclose(ptr);
+            return;
+
+        }
+        break;
+        case 6: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d CHEESE SPRING DOSA      \t\t%dx85=%d\n",qty,qty,qty*85);
+            totaldosa[5]=85*qty;
+            fclose(ptr);
+            return;
+
+        }
+        break;
+        case 7: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d PAPER DOSA              \t\t%dx45=%d\n",qty,qty,qty*45);
+            totaldosa[6]=45*qty;
+            fclose(ptr);
+            return;
+
+        }
+        break;
+        case 8: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d SET DOSA                 \t\t%dx65=%d\n",qty,qty,qty*65);
+            totaldosa[7]=65*qty;
+            fclose(ptr);
+            return;
+
+        }
+        break;
+        case 9: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d BUTTER DOSA              \t\t%dx55=%d\n",qty,qty,qty*55);
+            totaldosa[8]=55*qty;
+            fclose(ptr);
+            return;
+
+        }
+        break;
+        case 10: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d JAWAR DOSA              \t\t%dx70=%d\n",qty,qty,qty*70);
+            totaldosa[9]=70*qty;
+            fclose(ptr);
+            return;
+
+        }
+        break;
+        case 11: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d DIET DOSA               \t\t%dx70=%d\n",qty,qty,qty*70);
+            totaldosa[10]=70*qty;
+            fclose(ptr);
+            return;
+
+        }
+        break;
+        case 12: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d PLAIN DOSA              \t\t%dx40=%d\n",qty,qty,qty*40);
+            totaldosa[11]=40*qty;
+            fclose(ptr);
+            return;
+
+        }
+        break;
+        case 13: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d PIZZA DOSA              \t\t%dx105=%d\n",qty,qty,qty*105);
+            totaldosa[12]=105*qty;
+            fclose(ptr);
+            return;
+
+        }
+        break;
+        case 14: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d PANNER DOSA             \t\t%dx110=%d\n",qty,qty,qty*110);
+            totaldosa[13]=110*qty;
+            fclose(ptr);
+            return;
+
+        }
+        break;
+
+       
+            
+        
+        default:
+            break;
+        }
+
+    }
+    else if (ui==2)//idli
+    {
+        printf("1 FOR IDLI SAMBAR     \t\t35\n");
+        printf("2 FOR IDLI VADA SAMBAR\t\t45\n");
+        printf("3 FOR VADA SAMBAR     \t\t40\n");
+        printf("4 FOR GUNTOOR IDLI    \t\t55\n");
+        printf("5 FOR SPECIAL IDLI    \t\t65\n");
+        printf("6 FOR CHINEESE IDLI   \t\t65\n");
+        printf("7 FOR CHEESE IDLI     \t\t90\n");
+        printf("ENTER FOOD ITEM NUMBER:");
+
+        scanf("%d",&ui2);
+        switch (ui2)
+        {
+        case 1: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d IDLI SAMBAR             \t\t%dx35=%d\n",qty,qty,qty*35);
+            totalidli[0]=35*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 2: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d IDLI VADA SAMBAR        \t\t%dx45=%d\n",qty,qty,qty*45);
+            totalidli[1]=45*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 3: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d VADA SAMBAR             \t\t%dx40=%d\n",qty,qty,qty*40);
+            totalidli[2]=40*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 4: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d GUNTOOR IDLI            \t\t%dx55=%d\n",qty,qty,qty*55);
+            totalidli[3]=55*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 5: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d SPECIAL IDLI            \t\t%dx65=%d\n",qty,qty,qty*65);
+            totalidli[4]=65*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 6: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d CHINEESE IDLI           \t\t%dx65=%d\n",qty,qty,qty*65);
+            totalidli[5]=65*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 7: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d CHEESE IDLI             \t\t%dx90=%d\n",qty,qty,qty*90);
+            totalidli[6]=90*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        
+        default:
+            break;
+        }
+    
+    }
+    
+}
+void sandwich(){
+    int ui;
+    int qty;
+     FILE *ptr;
+     ptr=fopen("order.txt","a+");
+    printf("FOOD TYPE SANDWICHES\n");
+    printf("1 FOR  SANDWICH            \t\t\t35\n");
+    printf("2 FOR  CHEESE SANDWICH       \t\t\t55\n");
+    printf("3 FOR  GRILL SANDWICH        \t\t\t60\n");
+    printf("4 FOR  MEXICAN GRILL SANDWICH\t\t\t80\n");
+    printf("5 FOR  CHOCALTE GRILL        \t\t\t75\n");
+    printf("6 FOR  JEERA TOAST           \t\t\t35\n");
+    printf("7 FOR  MASALA TOAST          \t\t\t40\n");
+    printf("8 FOR  CHEESE TOAST          \t\t\t55\n");
+    printf("9 FOR  CHOCLATE TOAST        \t\t\t55\n");
+    printf("10 FOR SPECIAL TOAST         \t\t\t75\n");
+    printf("11 FOR BAHUBALI TOAST        \t\t\t150\n");
+    printf("ENTER FOOD ITEM NUMBER:");
+
+    scanf("%d",&ui);
+    switch (ui)
+    {
+        case 1: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d SANDWICH                \t\t%dx35=%d\n",qty,qty,qty*35);
+            totalsandwich[0]=35*qty;
+            fclose(ptr);
+            
+            return;
+        }
+        break;
+        case 2: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d CHEESE SANDWICH         \t\t%dx55=%d\n",qty,qty,qty*55);
+            totalsandwich[1]=55*qty;
+            fclose(ptr);
+            
+            return;
+        }
+        break;
+        case 3: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d GRILL SANDWICH          \t\t%dx60=%d\n",qty,qty,qty*60);
+            totalsandwich[2]=60*qty;
+            fclose(ptr);
+            
+            return;
+        }
+        break;
+        case 4: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d MEXICAN GRILL SANDWICH  \t\t%dx80=%d\n",qty,qty,qty*80);
+            totalsandwich[3]=80*qty;
+            fclose(ptr);
+            
+            return;
+        }
+        break;
+        case 5: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d CHOCALATE GRILL         \t\t%dx75=%d\n",qty,qty,qty*75);
+            totalsandwich[4]=75*qty;
+            fclose(ptr);
+            
+            return;
+        }
+        break;
+        case 6: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d JEERA TOAST             \t\t%dx35=%d\n",qty,qty,qty*35);
+            totalsandwich[5]=35*qty;
+            fclose(ptr);
+            
+            return;
+            }
+        break;
+            case 7: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d MASALA TOAST            \t\t%dx40=%d\n",qty,qty,qty*40);
+            totalsandwich[6]=40*qty;
+            fclose(ptr);
+            
+            return;
+            }
+        break;
+            case 8: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d CHEESE TOAST            \t\t%dx55=%d\n",qty,qty,qty*55);
+            totalsandwich[7]=55*qty;
+            fclose(ptr);
+            
+            return;
+            }
+        break;
+            case 9: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d CHOCLATE TOAST          \t\t%dx55=%d\n",qty,qty,qty*55);
+            totalsandwich[8]=55*qty;
+            fclose(ptr);
+            
+            return;
+            }
+        break;
+            case 10: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d SPECIAL TOAST           \t\t%dx75=%d\n",qty,qty,qty*75);
+            totalsandwich[9]=75*qty;
+            fclose(ptr);
+            
+            return;
+            }
+        break;
+            case 11: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d BAHUBALI TOAST          \t\t%dx150=%d\n",qty,qty,qty*150);
+            totalsandwich[10]=150*qty;
+            fclose(ptr);
+            
+            return;
+            }
+        break;
+
+   
+    
+    default:
+        break;
+    }
+}
+void otherdishes(){
+    int ui;
+    int qty;
+     FILE *ptr;
+     ptr=fopen("order.txt","a+");
+    printf("FOOD TYPE SANDWICHES\n");
+    printf("1 FOR KANDA POHA       \t\t\t35\n");
+    printf("2 FOR UPMA SHEV        \t\t\t35\n");
+    printf("3 FOR KURMA PURI       \t\t\t50\n");
+    printf("4 FOR PAV BHAJI        \t\t\t50\n");
+    printf("5 FOR CHEESE PAVVBHAJI \t\t\t75\n");
+    printf("6 FOR MASALA PAV BHAJI \t\t\t65\n");
+    printf("7 FOR SHEERA           \t\t\t35\n");
+    printf("8 FOR PINEAPPLE SHEERA \t\t\t40\n");
+    printf("9 FOR SANJA            \t\t\t35\n");
+    printf("10 FOR CHOW CHOW       \t\t\t45\n");
+    printf("11 FOR MASALA UPMA     \t\t\t40\n");
+    printf("ENTER FOOD ITEM NUMBER:");
+
+    scanf("%d",&ui);
+
+switch (ui)
+        {
+        case 1: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d KANDA POHA              \t\t%dx35=%d\n",qty,qty,qty*35);
+            totaldosa[0]=35*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 2: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d UPMA SHEV               \t\t%dx35=%d\n",qty,qty,qty*35);
+            totalother[1]=35*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 3: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d KURMA PURI              \t\t%dx50=%d\n",qty,qty,qty*50);
+            totalother[2]=50*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 4: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d PAV BHAJI               \t\t%dx50=%d\n",qty,qty,qty*50);
+            totalother[3]=50*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 5: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d CHEESE PAVVBHAJI        \t\t%dx75=%d\n",qty,qty,qty*75);
+            totalother[4]=75*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 6: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d MASALA PAV BHAJI        \t\t%dx65=%d\n",qty,qty,qty*65);
+            totalother[5]=65*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 7: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d  SHEERA                 \t\t%dx35=%d\n",qty,qty,qty*35);
+            totalother[6]=35*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 8: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d PINEAPPLE SHEERA        \t\t%dx45=%d\n",qty,qty,qty*45);
+            totalother[7]=45*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 9: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d SANJA                   \t\t%dx35=%d\n",qty,qty,qty*35);
+            totalother[8]=35*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 10: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d CHOW CHOW               \t\t%dx45=%d\n",qty,qty,qty*45);
+            totalother[9]=45*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 11: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d MASALA UPMA             \t\t%dx40=%d\n",qty,qty,qty*40);
+            totalother[10]=40*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        
+        }
+}
+void bevrages(){
+    int ui;
+    int qty;
+     FILE *ptr;
+     ptr=fopen("order.txt","a+");
+     int ui2;
+    printf("FOOD TYPE:SOUTH INDIAN\n");
+    printf("WHAT DO YOU WANT IN BEVRAGES\n");
+    printf("1 FOR TYPE OF CHAI\n2 FOR TYPES OF COFFE\n");
+    scanf("%d",&ui);
+    if (ui==1)
+    {
+        printf("1 for CHAI                15\n");
+        printf("2 for SPECIAL CHAI        20\n");
+        printf("3 for MASALA CHAI         20\n");
+        printf("4 for GREEN TEA           25\n");
+        printf("5 for BLACK TEA           20\n");
+        printf("6 for LEMON TEA           25\n");
+        printf("7 for DIET TEA            25\n");
+        
+        printf("ENTER FOOD ITEM NUMBER:");
+        scanf("%d",&ui2);
+        switch (ui2)
+        {
+            case 1: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d CHAI                    \t\t%dx15=%d\n",qty,qty,qty*15);
+            totaltea[0]=15*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 2: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d SPECIAL CHAI            \t\t%dx20=%d\n",qty,qty,qty*20);
+            totaltea[1]=20*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 3: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d MASALA CHAI             \t\t%dx20=%d\n",qty,qty,qty*20);
+            totaltea[2]=20*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 4: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d GREEN TEA               \t\t%dx25=%d\n",qty,qty,qty*25);
+            totaltea[3]=25*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 5: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d BLACK TEA               \t\t%dx20=%d\n",qty,qty,qty*20);
+            totaltea[4]=20*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 6: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d LEMON TEA               \t\t%dx25=%d\n",qty,qty,qty*25);
+            totaltea[5]=25*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 7: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d DIET TEA                \t\t%dx25=%d\n",qty,qty,qty*25);
+            totaltea[6]=25*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        
+        default:
+            break;
+        }
+        
+    }
+    else if (ui==2)
+    {
+        printf("1 for COFFE               35\n");
+        printf("2 for BLACK COFFE         40\n");
+        printf("3 for CAPPUCCINO          80\n");
+        printf("4 for SUGAR FREE COFFE    35\n");
+        printf("5 for ESPRESSO            100\n");
+        printf("6 for CAFFE MOCHA         100\n");
+        printf("7 for ICE COFFE           105\n");
+        
+        printf("ENTER FOOD ITEM NUMBER:");
+        scanf("%d",&ui2);
+        switch (ui2)
+        {
+            case 1: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d COFFE                   \t\t%dx35=%d\n",qty,qty,qty*35);
+            totalcoffe[0]=35*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 2: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d BLACK COFFE             \t\t%dx40=%d\n",qty,qty,qty*40);
+            totalcoffe[1]=40*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 3: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d CAPPUCCINO              \t\t%dx80=%d\n",qty,qty,qty*80);
+            totalcoffe[2]=80*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 4: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d SUGAR FREE COFFE        \t\t%dx35=%d\n",qty,qty,qty*35);
+            totalcoffe[3]=35*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 5: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d ESPRESSO                \t\t%dx100=%d\n",qty,qty,qty*100);
+            totalcoffe[4]=100*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 6: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d CAFFE MOCHA             \t\t%dx100=%d\n",qty,qty,qty*100);
+            totalcoffe[5]=100*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 7: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d ICE COFFE               \t\t%dx105=%d\n",qty,qty,qty*105);
+            totalcoffe[6]=105*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        
+        
+        default:
+            break;
+        }
+    }
+    
+    
+   
+
+
+
+}
+void coldrinks(){
+     int ui;
+    int qty;
+     FILE *ptr;
+     ptr=fopen("order.txt","a+");
+     int ui2;
+    printf("FOOD TYPE:COLDRINKS\n");
+    printf("WHAT DO YOU WANT IN COLDRINKS\n");
+    printf("1 FOR TYPES OF SODA\n2 FOR TYPES OF LASSI\n3 FOR TYPES OF JUICE\n");
+    scanf("%d",&ui);
+    if (ui==1)//dosa
+    {
+        
+        printf("1  FOR LEMON SODA           25\n");
+        printf("2  FOR JEERA SODA           25\n");
+        printf("3  FOR BLUEBERRY SODA       25\n");
+        printf("4  FOR ICECRAM SODA         25\n");
+        printf("5  FOR MANGO SODA           25\n");
+        printf("6  FOR ORANGE SODA          25\n");
+        printf("7  FOR PUDINA SODA          25\n");
+        printf("8  FOR MIX SODA             25\n");
+        printf("9  FOR SPECIAL SODA         25\n");
+        printf("10 FOR APPLE SODA           25\n");
+        printf("11 FOR JEERA PUDINA SODA    25\n");
+        printf("12 FOR PLAIN SODA           25\n");
+        printf("13 FOR WATERMELON SODA      25\n");
+        printf("14 FOR MOSAMBI SODA         25\n");
+        printf("ENTER FOOD ITEM NUMBER:");
+        scanf("%d",&ui2);
+        switch (ui2)
+        {
+        case 1: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d LEMON SODA              \t\t%dx25=%d\n",qty,qty,qty*25);
+            totalsoda[0]=25*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 2: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d JEERA SODA              \t\t%dx25=%d\n",qty,qty,qty*25);
+            totalsoda[1]=25*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 3: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d BLUEBERRY SODA          \t\t%dx25=%d\n",qty,qty,qty*25);
+            totalsoda[2]=25*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 4: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d ICECRAM SODA            \t\t%dx25=%d\n",qty,qty,qty*25);
+            totalsoda[3]=25*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 5: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d MANGO SODA              \t\t%dx25=%d\n",qty,qty,qty*25);
+            totalsoda[4]=25*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 6: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d ORANGE SODA             \t\t%dx25=%d\n",qty,qty,qty*25);
+            totalsoda[5]=25*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 7: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d PUDINA SODA             \t\t%dx25=%d\n",qty,qty,qty*25);
+            totalsoda[6]=25*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 8: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d MIX SODA                \t\t%dx25=%d\n",qty,qty,qty*25);
+            totalsoda[7]=25*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 9: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d SPECIAL SODA            \t\t%dx25=%d\n",qty,qty,qty*25);
+            totalsoda[8]=25*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 10: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d APPLE SODA              \t\t%dx25=%d\n",qty,qty,qty*25);
+            totalsoda[9]=25*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 11: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d JEERA PUDINA SODA       \t\t%dx25=%d\n",qty,qty,qty*25);
+            totalsoda[10]=25*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 12: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d PLAIN SODA              \t\t%dx25=%d\n",qty,qty,qty*25);
+            totalsoda[11]=25*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 13: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d WATERMELON SODA         \t\t%dx25=%d\n",qty,qty,qty*25);
+            totalsoda[12]=25*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 14: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d MOSAMBI SODA            \t\t%dx25=%d\n",qty,qty,qty*25);
+            totalsoda[13]=25*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+         
+        
+        default:
+            break;
+        }
+
+    }
+    else if (ui==2)
+    {
+        printf("1  FOR PLAIN      LASSI          45\n");
+        printf("2  FOR MANGO      LASSI          55\n");
+        printf("3  FOR STRAWBERRY LASSI          55\n");
+        printf("4  FOR WATERMELON LASSI          55\n");
+        printf("5  FOR GULKAND    LASSI          55\n");
+        printf("6  FOR DRYFRUIT   LASSI          55\n");
+        printf("7  FOR MIX        LASSI          55\n");
+        printf("8  FOR CHOCLATE   LASSI          55\n");
+        printf("ENTER FOOD ITEM NUMBER:");
+        scanf("%d",&ui2);
+        switch (ui2)
+        {
+        case 1: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d PLAIN LASSI             \t\t%dx45=%d\n",qty,qty,qty*45);
+            totallassi[0]=45*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 2: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d MANGO LASSI             \t\t%dx55=%d\n",qty,qty,qty*55);
+            totallassi[1]=55*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 3: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d STRAWBERRY LASSI        \t\t%dx55=%d\n",qty,qty,qty*55);
+            totallassi[2]=55*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 4: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d WATERMELON LASSI        \t\t%dx55=%d\n",qty,qty,qty*55);
+            totallassi[3]=55*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 5: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d GULKAND LASSI           \t\t%dx55=%d\n",qty,qty,qty*55);
+            totallassi[4]=55*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 6: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d DRYFRUIT LASSI          \t\t%dx55=%d\n",qty,qty,qty*55);
+            totallassi[5]=55*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 7: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d MIX LASSI               \t\t%dx55=%d\n",qty,qty,qty*55);
+            totallassi[6]=55*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        case 8: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d CHOCLATE LASSI          \t\t%dx55=%d\n",qty,qty,qty*55);
+            totallassi[7]=55*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        
+    
+    }
+    
+    
+    }
+    else if (ui==3)
+    {
+        printf("1  FOR MANGO JUICE              55\n");
+        printf("2  FOR WATERMELON JUICE         55\n");
+        printf("3  FOR ORANGE JUICE             55\n");
+        printf("4  FOR MOSAMBI JUICE            55\n");
+        printf("5  FOR PINEAPPLE JUICE          55\n");
+        printf("6  FOR APPLEJUICE               55\n");
+        printf("7  FOR MIX JUICE                55\n");
+        printf("8  FOR SPECIAL JUICE             55\n");
+        printf("ENTER FOOD ITEM NUMBER:");
+        scanf("%d",&ui2);
+        switch (ui2)
+        {
+        case 1: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d MANGO JUICE             \t\t%dx55=%d\n",qty,qty,qty*55);
+            totaljuice[0]=55*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+         case 2: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d WATERMELON JUICE        \t\t%dx55=%d\n",qty,qty,qty*55);
+            totaljuice[1]=55*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+         case 3: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d ORANGE JUICE            \t\t%dx55=%d\n",qty,qty,qty*55);
+            totaljuice[2]=55*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+         case 4: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d MOSAMBI JUICE           \t\t%dx55=%d\n",qty,qty,qty*55);
+            totaljuice[3]=55*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+         case 5: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d PINEAPPLE JUICE         \t\t%dx55=%d\n",qty,qty,qty*55);
+            totaljuice[4]=55*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+         case 6: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d APPLE JUICE             \t\t%dx55=%d\n",qty,qty,qty*55);
+            totaljuice[5]=55*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+         case 7: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d MIX JUICE               \t\t%dx55=%d\n",qty,qty,qty*55);
+            totaljuice[6]=55*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+         case 8: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d SPECIAL JUICE           \t\t%dx55=%d\n",qty,qty,qty*55);
+            totaljuice[7]=55*qty;
+            fclose(ptr);
+            
+            return;
+
+        }
+        break;
+        
+}
+    }
+}
+void icecreams(){
+    int ui;
+    int qty;
+     FILE *ptr;
+     ptr=fopen("order.txt","a+");
+    printf("FOOD TYPE ICECREAM\n");
+    printf("CHOOSE FLOAVOR OF ICECREAM\n");
+    printf("1 FOR CHOCLATE        \t\t\t45\n");
+    printf("2 FOR CHOCOCHIPS      \t\t\t50\n");
+    printf("3 FOR CHOCLATE BROWINE\t\t\t50\n");
+    printf("4 FOR COFFE           \t\t\t50\n");
+    printf("5 FOR BELGIAN CHOCLATE\t\t\t50\n");
+    printf("6 FOR MANGO           \t\t\t50\n");
+    printf("7 FOR STARWBWRRY      \t\t\t50\n");
+    printf("8 FOR JACKFRUIT       \t\t\t50\n");
+    printf("9 FOR GULKAND         \t\t\t45\n");
+    printf("10 FOR MALAI          \t\t\t45\n");
+    printf("11 FOR BUTERSCOTCH    \t\t\t45\n");
+    printf("12 FOR VANILLA        \t\t\t45\n");
+    printf("13 FOR DRYFRUIT       \t\t\t65\n");
+    printf("14 FOR KASATA         \t\t\t70\n");
+
+    printf("ENTER FOOD ITEM NUMBER:");
+
+    scanf("%d",&ui);
+    switch (ui)
+    {
+     case 1: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d CHOCLATE ICECREAM       \t\t%dx45=%d\n",qty,qty,qty*45);
+            totalicecream[0]=45*qty;
+            int tc;
+            printf("DO YOU WANT WAFFLE CONE FOR ICECREAM FOR 15\nOR A CUP\n1 FOR WAFFLE CONE \n2 FOR CUP \n");
+            scanf("%d",&tc);
+            if (tc==1)
+            {
+             fprintf(ptr,"%d WAFFLE CONE            \t\t%dx%d=%d\n",qty,qty,15,qty*15);
+            totalwafflecone[0]=qty*15;
+            }
+             else if (tc==2)
+            { 
+             }
+            else {
+            printf("wrong data");
+            return;
+             }
+            fclose(ptr);
+            
+            return;
+            }
+        break;
+        case 2: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d CHOCOCHIPS ICECREAM     \t\t%dx50=%d\n",qty,qty,qty*50);
+            totalicecream[1]=50*qty;
+            int tc;
+            printf("DO YOU WANT WAFFLE CONE FOR ICECREAM FOR 15\nOR A CUP\n1 FOR WAFFLE CONE \n2 FOR CUP \n");
+            scanf("%d",&tc);
+            if (tc==1)
+            {
+             fprintf(ptr,"%d WAFFLE CONE            \t\t%dx%d=%d\n",qty,qty,15,qty*15);
+            totalwafflecone[1]=qty*15;
+            }
+             else if (tc==2)
+            { 
+             }
+            else {
+            printf("wrong data");
+            return;
+             }
+            fclose(ptr);
+            
+            return;
+            }
+        break;
+        case 3: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d CHOCLATEBROWINE ICECREAM\t\t%dx50=%d\n",qty,qty,qty*50);
+            totalicecream[2]=50*qty;
+            int tc;
+            printf("DO YOU WANT WAFFLE CONE FOR ICECREAM FOR 15\nOR A CUP\n1 FOR WAFFLE CONE \n2 FOR CUP \n");
+            scanf("%d",&tc);
+            if (tc==1)
+            {
+             fprintf(ptr,"%d WAFFLE CONE            \t\t%dx%d=%d\n",qty,qty,15,qty*15);
+            totalwafflecone[2]=qty*15;
+            }
+             else if (tc==2)
+            { 
+             }
+            else {
+            printf("wrong data");
+            return;
+             }
+            fclose(ptr);
+            
+            return;
+            }
+        break;
+        case 4: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d COFFE ICECREAM          \t\t%dx50=%d\n",qty,qty,qty*50);
+            totalicecream[3]=50*qty;
+            int tc;
+            printf("DO YOU WANT WAFFLE CONE FOR ICECREAM FOR 15\nOR A CUP\n1 FOR WAFFLE CONE \n2 FOR CUP \n");
+            scanf("%d",&tc);
+            if (tc==1)
+            {
+             fprintf(ptr,"%d WAFFLE CONE            \t\t%dx%d=%d\n",qty,qty,15,qty*15);
+            totalwafflecone[3]=qty*15;
+            }
+             else if (tc==2)
+            { 
+             }
+            else {
+            printf("wrong data");
+            return;
+             }
+            fclose(ptr);
+            
+            return;
+            }
+        break;
+        case 5: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d BELGIANCHOCLATE ICECREAM\t\t%dx50=%d\n",qty,qty,qty*50);
+            totalicecream[4]=50*qty;
+            int tc;
+            printf("DO YOU WANT WAFFLE CONE FOR ICECREAM FOR 15\nOR A CUP\n1 FOR WAFFLE CONE \n2 FOR CUP \n");
+            scanf("%d",&tc);
+            if (tc==1)
+            {
+             fprintf(ptr,"%d WAFFLE CONE            \t\t%dx%d=%d\n",qty,qty,15,qty*15);
+            totalwafflecone[4]=qty*15;
+            }
+             else if (tc==2)
+            { 
+             }
+            else {
+            printf("wrong data");
+            return;
+             }
+            fclose(ptr);
+            
+            return;
+            }
+        break;
+        case 6: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d MANGO ICECREAM          \t\t%dx50=%d\n",qty,qty,qty*50);
+            totalicecream[5]=50*qty;
+            int tc;
+            printf("DO YOU WANT WAFFLE CONE FOR ICECREAM FOR 15\nOR A CUP\n1 FOR WAFFLE CONE \n2 FOR CUP \n");
+            scanf("%d",&tc);
+            if (tc==1)
+            {
+             fprintf(ptr,"%d WAFFLE CONE            \t\t%dx%d=%d\n",qty,qty,15,qty*15);
+            totalwafflecone[5]=qty*15;
+            }
+             else if (tc==2)
+            { 
+             }
+            else {
+            printf("wrong data");
+            return;
+             }
+            fclose(ptr);
+            
+            return;
+            }
+        break;
+        case 7: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d STARWBWRRY ICECREAM     \t\t%dx50=%d\n",qty,qty,qty*50);
+            totalicecream[6]=50*qty;
+            int tc;
+            printf("DO YOU WANT WAFFLE CONE FOR ICECREAM FOR 15\nOR A CUP\n1 FOR WAFFLE CONE \n2 FOR CUP \n");
+            scanf("%d",&tc);
+            if (tc==1)
+            {
+             fprintf(ptr,"%d WAFFLE CONE            \t\t%dx%d=%d\n",qty,qty,15,qty*15);
+            totalwafflecone[6]=qty*15;
+            }
+             else if (tc==2)
+            { 
+             }
+            else {
+            printf("wrong data");
+            return;
+             }
+            fclose(ptr);
+            
+            return;
+            }
+        break;
+        case 8: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d JACKFRUIT ICECREAM      \t\t%dx50=%d\n",qty,qty,qty*50);
+            totalicecream[7]=50*qty;
+            int tc;
+            printf("DO YOU WANT WAFFLE CONE FOR ICECREAM FOR 15\nOR A CUP\n1 FOR WAFFLE CONE \n2 FOR CUP \n");
+            scanf("%d",&tc);
+            if (tc==1)
+            {
+             fprintf(ptr,"%d WAFFLE CONE            \t\t%dx%d=%d\n",qty,qty,15,qty*15);
+            totalwafflecone[7]=qty*15;
+            }
+             else if (tc==2)
+            { 
+             }
+            else {
+            printf("wrong data");
+            return;
+             }
+            fclose(ptr);
+            
+            return;
+            }
+        break;
+        case 9: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d GULKAND ICECREAM        \t\t%dx45=%d\n",qty,qty,qty*45);
+            totalicecream[8]=45*qty;
+            int tc;
+            printf("DO YOU WANT WAFFLE CONE FOR ICECREAM FOR 15\nOR A CUP\n1 FOR WAFFLE CONE \n2 FOR CUP \n");
+            scanf("%d",&tc);
+            if (tc==1)
+            {
+             fprintf(ptr,"%d WAFFLE CONE            \t\t%dx%d=%d\n",qty,qty,15,qty*15);
+            totalwafflecone[8]=qty*15;
+            }
+             else if (tc==2)
+            { 
+             }
+            else {
+            printf("wrong data");
+            return;
+             }
+            fclose(ptr);
+            
+            return;
+            }
+        break;
+        case 10: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d MALAI ICECREAM          \t\t%dx45=%d\n",qty,qty,qty*45);
+            totalicecream[9]=45*qty;
+            int tc;
+            printf("DO YOU WANT WAFFLE CONE FOR ICECREAM FOR 15\nOR A CUP\n1 FOR WAFFLE CONE \n2 FOR CUP \n");
+            scanf("%d",&tc);
+            if (tc==1)
+            {
+             fprintf(ptr,"%d WAFFLE CONE            \t\t%dx%d=%d\n",qty,qty,15,qty*15);
+            totalwafflecone[9]=qty*15;
+            }
+             else if (tc==2)
+            { 
+             }
+            else {
+            printf("wrong data");
+            return;
+             }
+            fclose(ptr);
+
+            
+            return;
+            }
+        break;
+        case 11: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d BUTERSCOTCH ICECREAM    \t\t%dx45=%d\n",qty,qty,qty*45);
+            totalicecream[10]=45*qty;
+            int tc;
+            printf("DO YOU WANT WAFFLE CONE FOR ICECREAM FOR 15\nOR A CUP\n1 FOR WAFFLE CONE \n2 FOR CUP \n");
+            scanf("%d",&tc);
+            if (tc==1)
+            {
+             fprintf(ptr,"%d WAFFLE CONE            \t\t%dx%d=%d\n",qty,qty,15,qty*15);
+            totalwafflecone[10]=qty*15;
+            }
+             else if (tc==2)
+            { 
+             }
+            else {
+            printf("wrong data");
+            return;
+             }
+            fclose(ptr);
+            
+            return;
+            }
+        break;
+        case 12: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d VANILLA ICECREAM        \t\t%dx45=%d\n",qty,qty,qty*45);
+            totalicecream[11]=45*qty;
+            int tc;
+            printf("DO YOU WANT WAFFLE CONE FOR ICECREAM FOR 15\nOR A CUP\n1 FOR WAFFLE CONE \n2 FOR CUP \n");
+            scanf("%d",&tc);
+            if (tc==1)
+            {
+             fprintf(ptr,"%d WAFFLE CONE            \t\t%dx%d=%d\n",qty,qty,15,qty*15);
+            totalwafflecone[11]=qty*15;
+            }
+             else if (tc==2)
+            { 
+             }
+            else {
+            printf("wrong data");
+            return;
+             }
+            fclose(ptr);
+            
+            return;
+            }
+        break;
+        case 13: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d DRYFRUIT ICECREAM       \t\t%dx65=%d\n",qty,qty,qty*65);
+            totalicecream[12]=65*qty;
+            int tc;
+            printf("DO YOU WANT WAFFLE CONE FOR ICECREAM FOR 15\nOR A CUP\n1 FOR WAFFLE CONE \n2 FOR CUP \n");
+            scanf("%d",&tc);
+            if (tc==1)
+            {
+             fprintf(ptr,"%d WAFFLE CONE            \t\t%dx%d=%d\n",qty,qty,15,qty*15);
+            totalwafflecone[12]=qty*15;
+            }
+             else if (tc==2)
+            { 
+             }
+            else {
+            printf("wrong data");
+            return;
+             }
+            fclose(ptr);
+            
+            return;
+            }
+        break;
+        case 14: {
+            
+            printf("QTY\n");
+            scanf("%d",&qty);
+            fprintf(ptr,"%d KASATA ICECREAM         \t\t%dx70=%d\n",qty,qty,qty*70);
+            totalicecream[13]=70*qty;
+            int tc;
+            printf("DO YOU WANT WAFFLE CONE FOR ICECREAM FOR 15\nOR A CUP\n1 FOR WAFFLE CONE \n2 FOR CUP \n");
+            scanf("%d",&tc);
+            if (tc==1)
+            {
+             fprintf(ptr,"%d WAFFLE CONE            \t\t%dx%d=%d\n",qty,qty,15,qty*15);
+            totalwafflecone[13]=qty*15;
+            }
+             else if (tc==2)
+            { 
+             }
+            else {
+            printf("wrong data");
+            return;
+             }
+            fclose(ptr);
+
+            
+            return;
+            }
+        break;
+    
+    default:
+        break;
+    }
+    
+    
+
+
+}
+void final_order_printer(){
+    FILE* ptr;
+    ptr=fopen("order.txt","r");
+    rewind(ptr);
+    while (1)
+    {
+        char a=fgetc(ptr);
+        if (a==EOF)
+        {
+            break;
+        }
+        
+        
+         printf("%c",a);
+        
+    }
+    
+   
+    return;
+}
