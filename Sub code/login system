@@ -1,0 +1,437 @@
+#include <stdio.h>
+#include<string.h>
+
+
+//functions
+void verifierid(FILE*);
+void verifierp(FILE*);
+void verifiere(FILE*);
+void verifierep(FILE*);
+void verifierloginid(FILE*);
+void verifierloginp(FILE*);
+void login();
+void create();
+void forgotip();
+//functions
+
+
+//variables//
+FILE *id;//FILE POINTER
+FILE *password;//FILE POINTER
+FILE *email;
+FILE *epassword;
+int a=0;
+int a2=0;
+int a3=0;
+int in;//stores user entered number
+char fid[100];//stores email id from file
+char uid[100];//stores input email id
+char fp[100];//stores  passsword from fle
+char up[100];//stores input password
+char ue[50];
+char uep[50];
+char fe[50];
+char fep[50];
+int vse;
+int vsep;
+int vsi;//recives verifier signal of id
+int vsp;//recives verifier signal of password
+
+//varibales
+int main(){
+
+    id=fopen("id.txt","a+");
+    password=fopen("password.txt","a+");
+    epassword=fopen("epassword.txt","a+");
+    email=fopen("email.txt","a+");
+    if (id==NULL||password==NULL||email==NULL||epassword==NULL)
+    {
+        printf("unable to open file sorry :(\na code by sagar\n");
+        fclose(id);
+        fclose(password);
+        fclose(email);
+        fclose(epassword);
+        return 0;
+    }
+    fclose(password);
+    fclose(id);
+    fclose(email);
+    fclose(epassword);
+    printf("--------WELCOME TO THE LOGIN SYSTEM--------\n");
+    printf("PRESS 1 TO LOGIN IN \nPRESS 2 TO CREATE ACCOUNT\nPRESS 3 IF YOU FORGOT YOUR ID\\PASSWORD\n");
+    scanf("%d",&in);
+    getchar();
+    if (in==1)
+    {
+        login();
+    }
+    else if (in==2)
+    {
+        create();
+    }
+    else if (in==3)
+    {
+        forgotip();
+    }
+    
+    
+    return 0;
+}
+
+void login(){
+    id=fopen("id.txt","r");
+    password=fopen("password.txt","r");
+    rewind(id);
+    rewind(password);
+    printf("SELECTED MODE :: LOGIN\n");
+    printf("ENTER YOUR ID\n");
+    fgets(uid,50,stdin);
+    verifierloginid(id);
+    if (vsi==1)
+    {
+        //
+    }
+    if (vsi==0)
+    {
+        printf("YOU ENTERED WRONG ID OR ID MIGHT NOT EXISTS:(\n");
+        return;
+    }
+    printf("ENTER YOUR PASSWORD\n");
+    fgets(up,50,stdin);
+    verifierloginp(password);
+    if (vsp==1)
+    {
+        printf("YOU SUCCESSFULLTY LOGGED IN\n");
+    }
+    if (vsp==0)
+    {
+        printf("YOU ENTERED WRONG PASSWORD:(\n");
+    }
+    
+    
+
+
+
+}
+void create(){
+    id=fopen("id.txt","a+");
+    password=fopen("password.txt","a+");
+    epassword=fopen("epassword.txt","a+");
+    email=fopen("email.txt","a+");
+    printf("SELECTED MOD: CREATE ACCOUNT\n");
+    printf("ENTER USER ID ::");
+    fgets(uid,50,stdin);
+    verifierid(id);
+    if (vsi==1)
+    {
+        printf("THE ID YOU ENTERED EXISTS TRY ENTERING DIFFERENT ID\n");
+        fclose(id);
+        fclose(password);
+        fclose(email);
+        fclose(epassword);
+        return;
+
+    }
+    if (vsi==0)
+    {
+     //   
+    }
+    printf("ENTER A PASSWORD::");
+    fgets(up,50,stdin);
+    verifierp(password);
+    if (vsp==1)
+    {
+        printf("THE PASSWORD YOU ENTERED EXISTS TRY ENTERING DIFFERENT PASSWORD\n");
+        fclose(id);
+        fclose(password);
+        fclose(email);
+        fclose(epassword);
+        return;
+
+    }
+    if (vsp==0)
+    {
+        //
+        
+    }
+    printf("ENTER YOUR EMAIL(INCLUDE@gmail.com)\n");
+    fgets(ue,50,stdin);
+    char gmail[50];
+    strcpy(gmail,ue);
+    char tofind[]="@gmail.com";
+    if (!strstr(gmail,tofind))
+    {
+        printf("INCLUDE \"@gamil.com\"");
+        return;
+    }
+    
+    verifiere(email);
+    if (vse==1)
+    {
+        printf("THE EMAIL YOU ENTERED EXISTS \n");
+        fclose(id);
+        fclose(password);
+        fclose(email);
+        fclose(epassword);
+        return;
+
+    }
+    if (vsp==0)
+    {
+        //
+        
+    }
+    printf("ENTER A SECURITY CODE IN CASE YOU FORGET ID OR PASSWORD FOR RECOVERY\n");
+    fgets(uep,50,stdin);
+    verifierep(epassword);
+    if (vsep==1)
+    {
+        printf("THE SECURITY CODE YOU ENTERED EXISTS TRY ENTERING DIFFERENT\n");
+        fclose(id);
+        fclose(password);
+        fclose(email);
+        fclose(epassword);
+        return;
+
+    }
+    if (vsep==0)
+    {
+        //
+        
+    }
+    if (vsp==0 && vsi==0&&vse==0&&vsep==0)
+    {
+        fprintf(password,"%s",up);
+        fprintf(id,"%s",uid);
+        fprintf(email,"%s",ue);
+        fprintf(epassword,"%s",uep);
+
+        printf("ID AND PASSSWORD CREATED SUCCESFULLY :)\n");
+    }
+    fclose(id);
+    fclose(password);
+    fclose(email);
+    fclose(epassword);
+    
+    return;
+}
+void forgotip(){
+    id=fopen("id.txt","a+");
+    password=fopen("password.txt","a+");
+    epassword=fopen("epassword.txt","a+");
+    email=fopen("email.txt","a+");
+
+    printf("ENTER YOUR EMAIL ADRESS\n");
+    fgets(ue,50,stdin);
+    verifiere(email);
+    if (vse==1)
+    {
+        //
+    }
+    if (vse==0)
+    {
+        printf("YOU ENTERED WRONG EMAIL OR EMAIL DOESENT EXISTS;(");
+        return;
+    }
+    printf("ENTER YOUR SECURITY PIN\n");
+    fgets(uep,50,stdin);
+    verifierep(epassword);
+    if (vsep==1)
+    {
+    //
+    }
+    if (vsep==0)
+    {
+        printf("YOU ENTERED WRONG SECURITY PIN:(");
+        return;
+    }
+    if (vsep==1&&vse==1)
+    {
+        for (int i = 1; i <= a3; i++)
+        {
+            fgets(fid,50,id);
+            if (i==a3)
+            {
+                printf("ID AND PASSWORD TO PROVIDED EMAIL AND SECURITY PIN IS\n");
+                printf("ID::");
+                printf("%s",fid);
+            }
+            
+        }
+
+
+
+
+        for (int i = 1; i <= a3; i++)
+        {
+            fgets(fp,50,password);
+            if (i==a3)
+            {
+                printf("PASSWORD::");
+                printf("%s",fp);
+            }
+            
+        }
+        
+    }
+    
+    
+    
+
+
+
+}
+void verifierid(FILE*id){
+    rewind(id);
+    while (1)
+    {
+        
+        
+        fgets(fid,50,id);
+        if (strcmp(uid,fid)==0)
+        {
+            vsi=1;
+            break;
+
+        }
+        if (feof(id))
+        {
+            vsi=0;
+            break;
+        }
+        
+        
+    }
+    
+    return;
+}
+void verifierp(FILE*password){
+    rewind(password);
+    while (1)
+    {
+        fgets(fep,50,password);
+        if (strcmp(up,fp)==0)
+        {
+            vsp=1;
+            break;
+
+        }
+        if (feof(password))
+        {
+            vsp=0;
+            break;
+        }
+        
+        
+    }
+
+    
+    
+    return;
+
+    }
+void verifiere(FILE*email){
+    rewind(email);
+    while (1)
+    {
+        
+        a3++;
+        fgets(fe,50,email);
+        if (strcmp(ue,fe)==0)
+        {
+            vse=1;
+            break;
+
+        }
+        if (feof(email))
+        {
+            vse=0;
+            break;
+        }
+        
+        
+    }
+    
+    return;
+}
+void verifierep(FILE*epassword){
+    rewind(epassword);
+    while (1)
+    {
+        fgets(fep,50,epassword);
+        if (strcmp(uep,fep)==0)
+        {
+            
+            vsep=1;
+            break;
+
+        }
+        if (feof(epassword))
+        {
+            
+            vsep=0;
+            break;
+        }
+        
+        
+    }
+
+    
+    return;
+
+    }
+void verifierloginid(FILE*id){
+    rewind(id);
+    while (1)
+    {
+        a++;
+        
+        
+        fgets(fid,50,id);
+        if (strcmp(uid,fid)==0)
+        {
+            vsi=1;
+            break;
+
+        }
+        if (feof(id))
+        {
+            vsi=0;
+            break;
+        }
+        
+        
+    }
+    
+    return;
+};
+void verifierloginp(FILE*password){
+    rewind(password);
+    while(1)
+    {
+        a2++;
+        
+        fgets(fp,50,password);
+        if (a2==a)
+            {if (strcmp(up,fp)==0)
+        {
+                vsp=1;
+                break;
+            }
+            else{
+                break;
+            }
+            }
+        if (feof(password))
+        {
+         vsp=0;
+         break;
+            
+        }
+        
+        
+    }
+
+    
+    return;
+};
