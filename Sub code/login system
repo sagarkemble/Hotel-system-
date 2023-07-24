@@ -2,6 +2,7 @@
 #include<string.h>
 
 
+
 //functions
 void verifierid(FILE*);
 void verifierp(FILE*);
