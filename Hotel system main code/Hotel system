@@ -652,6 +652,8 @@ void hotelsystem(){
     printf("%d",totalv);
     printf("\n\nYOUR ORDER WILL ARRIVE SOON \n\n\n\n\n");
     printf("-------------------THANKYOU FOR VISITING-------------------\n");
+    printf("PRESS ENTER TO EXIT\n");
+    getch();
     break;
         }
 else {
