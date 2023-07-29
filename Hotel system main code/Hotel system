@@ -348,7 +348,7 @@ void create(){
         //
         
     }
-    printf("ENTER A SECURITY CODE IN CASE YOU FORGET ID OR PASSWORD FOR RECOVERY\n");
+    printf("ENTER A SECURITY CODE FOR RECOVERY OF ID AND PASSWORD \n");
     fgets(uep,50,stdin);
     verifierep(epassword);
     if (vsep==1)
