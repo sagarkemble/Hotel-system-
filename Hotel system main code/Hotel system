@@ -148,7 +148,7 @@ void reserve_table(){
     printf("ENTER NUMBER OF MEMEBERS\n");
     scanf("%d",&nm);
     getchar();
-    printf("ENTER YOU WANT TABEL RESERVED IN AC ROOM OR NON AC\n");
+    printf(" DO YOU WANT YOUR TABEL.TO RESERVED IN AC OR NON-AC ROOM\n");
     printf("PRESS 1 FOR AC \nPRESS 2 FOR NON AC\n");
     scanf("%d",&type);
     //getchar();
