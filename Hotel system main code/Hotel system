@@ -12,7 +12,7 @@ void loginsystem();//main function of login processs
 void verifierid(FILE*);// while creating a account id you enter exist or not 
 void verifierp(FILE*);// while creating a account password you enter exist or not
 void verifiere(FILE*);//it verifies email if it exist or not while creating acocount
-void verifierep(FILE*);//it verifies security pin if it exists or not while c4reating account
+void verifierep(FILE*);//it verifies security pin if it exists or not while creating account
 void verifierloginid(FILE*);//it verifies entered id is correct or not while logging in
 void verifierloginp(FILE*);//it verifies entered password is correct or not while logging in
 void login();//controls function while loggin in
